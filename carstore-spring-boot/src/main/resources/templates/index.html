@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+<form th:action="@{/create-car}" th:object="${carDTO}" method="post">
+
+    <label>Car Name</label>
+    <input type="text" id="name" th:field="*{name}">
+
+    <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+
+    <br><br>
+
+    <label>Color</label>
+    <input type="text" id="color" th:field="*{color}">
+
+    <button type="submit">Register</button>
+
+</form>
+
+</body>
+</html>
