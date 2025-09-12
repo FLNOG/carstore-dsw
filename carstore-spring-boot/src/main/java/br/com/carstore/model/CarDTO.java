@@ -1,4 +1,4 @@
-package br.com.carstore.dto;
+package br.com.carstore.model;
 
 import jakarta.validation.constraints.Size;
 
@@ -24,5 +24,4 @@ public class CarDTO {
     public void setColor(String color) {
         this.color = color;
     }
-
 }
