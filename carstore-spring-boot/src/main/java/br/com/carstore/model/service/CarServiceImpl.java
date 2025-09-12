@@ -1,13 +1,13 @@
-package br.com.carstore.service;
+package br.com.carstore.model.service;
 
-import br.com.carstore.model.CarDTO;
+import br.com.carstore.model.model.CarDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CarServiceImpl implements CarService  {
+public class CarServiceImpl implements CarService {
 
     private int id = 1;
     private List<CarDTO> cars;

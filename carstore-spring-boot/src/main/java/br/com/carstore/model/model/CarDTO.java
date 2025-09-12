@@ -1,4 +1,4 @@
-package br.com.carstore.model;
+package br.com.carstore.model.model;
 
 import jakarta.validation.constraints.Size;
 
