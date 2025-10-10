@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="pt-br" xmlns:th="[http://www.thymeleaf.org](http://www.thymeleaf.org)">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
 </head>
 <body>
 
-<form th:action="@{/create-car}" th:object="${carDTO}" method="post">
+    <!-- Inserindo a navbar -->
+    <div th:replace="fragments :: navbar"></div>
 
-    <label>Car Name</label>
-    <input type="text" id="name" th:field="*{name}">
+    <div class="container mt-5">
+        <h1 class="mb-4">Create car</h1>
+        <form action="#" th:action="@{/cars}" th:object="${carDTO}" method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nome:</label>
+                <input type="text" id="name" th:field="*{name}" class="form-control">
+                <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="color" class="form-label">Cor:</label>
+                <input type="text" id="color" th:field="*{color}" class="form-control">
+                <span class="error" th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></span>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
 
-    <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-
-    <br><br>
-
-    <label>Color</label>
-    <input type="text" id="color" th:field="*{color}">
-
-    <button type="submit">Register</button>
-
-</form>
-
+    <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

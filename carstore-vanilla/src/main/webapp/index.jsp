@@ -2,17 +2,14 @@
 <body>
 <h2>Create Car</h2>
 
-<form action="/create-car-v" method="post">
+<form action="/create-car" method="post">
 
     <label>Car Name</label>
-    <input type="text" name="car-name" id="car-name">
+    <input type="text" name="car-name" id="car-name" value="${param.name}">
+    <input type="text" name="car-color" id="car-color" value="${param.color}">
+    <input type="hidden" id="id" name="id" value="${param.id}">
 
-    <br><br>
-
-    <label>Color</label>
-    <input type="text" name="color" id="color">
-
-    <button type="submit">Register</button>
+    <button type="submit">Save</button>
 
 </form>
 

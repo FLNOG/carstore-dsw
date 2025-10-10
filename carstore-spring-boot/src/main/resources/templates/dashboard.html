@@ -3,37 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}"
 </head>
 <body>
 
-<h1>Car Dashboard</h1>
+    <!-- Inserindo a navbar -->
+    <div th:replace="fragments :: navbar"></div>
 
-<table border="1">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Cor</th>
-        <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="car : ${cars}">
-        <td th:text="${car.id}"></td>
-        <td th:text="${car.name}"></td>
-        <td th:text="${car.color}"></td>
-        <td>
-            <form th:action="@{/cars/edit/{id}(id=${car.id})}" method="get" style="display:inline">
-                <button type="submit">Editar</button>
-            </form>
+    <div class="container mt-5">
+        <h1 class="mb-4">Dashboard</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Cor</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="car : ${cars}">
+                <td th:text="${car.id}"></td>
+                <td th:text="${car.name}"></td>
+                <td th:text="${car.color}"></td>
+                <td>
+                    <form th:action="@{/cars/edit/{id}(id=${car.id})}" method="get" style="display:inline">
+                        <button type="submit">Editar</button>
+                    </form>
 
-            <form th:action="@{/cars/delete/{id}(id=${car.id})}" method="post" style="display:inline">
-                <button type="submit">Remover</button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
-
+                    <form th:action="@{/cars/delete/{id}(id=${car.id})}" method="post" style="display:inline">
+                        <button type="submit">Remover</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
